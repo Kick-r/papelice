@@ -1,0 +1,122 @@
+<html>
+<head>
+<style>
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+}
+
+.loader .ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: pink;
+}
+
+.loader .planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+}
+
+</style>
+</head>
+<body>
+<div class="loader">
+<div class="ball"></div>
+</div>
+<script>
+// Array com as cores e os tamanhos dos planetas
+var planets = [
+  {color: "pink", size: "20px"},
+  {color: "pink", size: "50px"},
+  {color: "pink", size: "30px"},
+  
+];
+
+// Função que cria os planetas na div loader
+function createPlanets() {
+  var loader = document.querySelector(".loader");
+  
+  // Loop para criar cada planeta
+  for (var i = 0; i < planets.length; i++) {
+    // Cria um elemento div para o planeta
+    var planet = document.createElement("div");
+    // Adiciona a classe planet
+    planet.classList.add("planet");
+    // Define o estilo do planeta
+    planet.style.backgroundColor = planets[i].color;
+    planet.style.width = planets[i].size;
+    planet.style.height = planets[i].size;
+    planet.style.borderRadius = "50%";
+    // Define a posição inicial do planeta
+    var angle = i * (360 / planets.length); // Ângulo em graus
+    var radius = (loader.offsetWidth / 2) - (parseInt(planets[i].size) / 2); // Raio em pixels
+    var x = radius * Math.cos(angle * Math.PI / 180); // Posição x em pixels
+    var y = radius * Math.sin(angle * Math.PI / 180); // Posição y em pixels
+    planet.style.transform = "translate(" + x + "px, " + y + "px)";
+    // Adiciona o planeta na div loader
+    loader.appendChild(planet);
+    // Aplica a animação de rotação no planeta
+    rotatePlanet(planet, angle, radius);
+    
+   }
+}
+
+// Função que faz um planeta girar em torno da bola
+function rotatePlanet(planet, angle, radius) {
+  
+   // Define a duração da animação em segundos
+   var duration = 10;
+   // Define o intervalo de atualização em milissegundos
+   var interval = 10;
+   // Define o incremento do ângulo em graus
+   var increment = (360 / duration) * (interval / 1000);
+   
+   // Cria uma função que atualiza a posição do planeta
+   function updatePosition() {
+     // Incrementa o ângulo
+     angle += increment;
+     // Calcula a nova posição x e y do planeta
+     var x = radius * Math.cos(angle * Math.PI / 180);
+     var y = radius * Math.sin(angle * Math.PI / 180);
+     // Aplica a transformação no planeta
+     planet.style.transform = "translate(" + x + "px, " + y + "px)";
+   }
+   
+   // Chama a função de atualização a cada intervalo
+   setInterval(updatePosition, interval);
+   
+}
+
+// Chama a função de criar os planetas quando a página carregar
+window.addEventListener("load", createPlanets);
+
+</script>
+<script>
+    // Define o tempo de duração da tela de carregamento em milissegundos
+    var duration = 10000;
+    
+    // Define o endereço do site para o qual o usuário será redirecionado
+    var site = "tela.html";
+    
+    // Cria uma função que redireciona o usuário após o tempo definido
+    function redirect() {
+        window.location.href = site;
+    }
+    
+    // Chama a função de redirecionamento após o tempo definido
+    setTimeout(redirect, duration);
+    
+    </script>
+</body>
+</html>

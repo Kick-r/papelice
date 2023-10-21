@@ -1,0 +1,105 @@
+@font-face {
+    font-family: Meladu_Rose;
+    src: url("MELADU_ROSE.otf");
+}
+
+.all h1 {
+    font-size: 375%;
+    font-family: Meladu_Rose;
+    background-color: #ffffff;
+    color: #f1ac92;
+}
+
+.all .produto {
+    width: 50%;
+    position: relative;
+    left: 25%;
+    margin-top: 10%;
+    padding-top: 1.5%;
+    padding-bottom: 1%;
+    text-align: center;
+    background-color: #ffffff;
+    
+    border-radius: 25px;  
+}
+
+.all .produto * {
+    transition: all 0.2s ease-out;
+}
+
+.all .produto img {
+    width: 75%;
+    border-radius: 25px;  
+}
+
+.all .produto img:hover {
+    transform: scale(1.05);
+}
+
+.all .produto button {
+    font-size: 120%;
+    padding: 1%;
+    transition: all 0.3s ease-out;
+    background-color: #ffffff;
+    color: #FFBFA7;
+    border-radius: 20px;
+    border: 2px solid #FFBFA7;
+}
+
+.all .produto button:hover{
+    background-color: #FFBFA7;
+    color: #ffffff;
+    box-shadow: -5px 5px 10px #cecdcd;
+}
+
+.barra_lateral {
+    position: fixed;
+    width: 6%;
+    text-align: center;
+    height: 100%;
+    box-shadow: 2px 0px 10px #cecdcd;
+    background-color: #ffffff;
+}
+
+.barra_lateral .house_logo .logo {
+    width: 80%;
+    border-radius: 50px;
+}
+
+.house_logo {
+    background-color: #FFBFA7;
+}
+
+#icon {
+    width: 30%;
+    margin: 40%;
+    border-radius: 25%;
+}
+
+.icon:hover {
+    transform:  scale(1.3);
+    transition: all 0.3s ease-in;
+}
+
+.init {
+    width: 100%;
+    height: 650px;    
+    background-image: url("logo1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.all p {
+   color:#ac715c;
+   font-size: 110%; 
+}
+
+.all {
+    text-align: center;
+}
+
+body {
+   background-color:#FCE8DD; 
+}
